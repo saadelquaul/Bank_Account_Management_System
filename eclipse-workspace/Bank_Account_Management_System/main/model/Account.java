@@ -1,10 +1,12 @@
 package main.model;
 
+import java.util.List;
+
 public abstract class Account {
 
 	private String code;
 	private float balance;
-	private OperationService[] Operations;
+	private List<OperationService> Operations;
 	
 	
 	public Account(float balance) {
@@ -12,7 +14,7 @@ public abstract class Account {
 	}
 	
 	
-	public OperationService[] getOperations() {
+	public List<OperationService> getOperations() {
 		return Operations;
 	}
 
@@ -32,8 +34,8 @@ public abstract class Account {
 	}
 
 
-	public void setOperations(OperationService[] operations) {
-		Operations = operations;
+	public void setOperations(OperationService operation) {
+		Operations.add(operation);
 	}
 
 

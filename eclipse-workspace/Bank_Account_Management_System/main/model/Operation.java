@@ -3,7 +3,9 @@ package main.model;
 import java.util.Date;
 import java.util.UUID;
 
-public abstract class Operation {
+import main.service.OperationService;
+
+public abstract class Operation implements OperationService {
 	private UUID number;
 	private Date date;
 	private float montant;

@@ -19,7 +19,8 @@ public class CurrentAccount extends Account {
 		if ( this.getBalance() - amount >= -overDraft) {
 			
 			this.setBalance(-amount);
-			return this.setOperations(new Withdrawal(amount,"Distributeur ATM"));
+			setOperations(new Withdrawal(amount,"Distributeur ATM"));
+			return true;
 		}
 		return false;
 	}
