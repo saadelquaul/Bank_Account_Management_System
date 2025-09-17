@@ -2,9 +2,24 @@ package main.model;
 
 public class SavingsAccount extends Account {
 
+	private float interestRate = 0.2f;
+	
+	public SavingsAccount(float balance) {
+		
+		super(balance);
+	}
+	
+	public float getInterestRate() {
+		
+		return interestRate;
+	}
+	
 	@Override
 	public boolean withdraw(float amount) {
-		// TODO Auto-generated method stub
+		
+		if(this.getBalance() >= amount) {
+			setBalance(-amount);
+		}
 		return false;
 	}
 

@@ -1,22 +1,39 @@
 package main.model;
 
 public class CurrentAccount extends Account {
+	
+	private float overDraft = 500;
+	
+	public CurrentAccount(float balance) {
+		super(balance);;
+	}
 
+	
+	public float getOverDraft() {
+		return overDraft;
+	}
+	
+	
 	@Override
 	public boolean withdraw(float amount) {
-		// TODO Auto-generated method stub
+		if ( this.getBalance() - amount >= -overDraft) {
+			
+			this.setBalance(-amount);
+			return this.setOperations(new Withdrawal(amount,"Distributeur ATM"));
+		}
 		return false;
 	}
 
 	@Override
 	public void displayDetails() {
-		// TODO Auto-generated method stub
+		
+		
 
 	}
 
 	@Override
 	public float calculateInterest() {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 

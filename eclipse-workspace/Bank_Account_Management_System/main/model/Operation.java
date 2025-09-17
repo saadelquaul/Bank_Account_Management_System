@@ -8,7 +8,7 @@ public abstract class Operation {
 	private Date date;
 	private float montant;
 	
-	Operation(float montant) {
+	public Operation(float montant) {
 		this.montant = montant;
 		this.date = new Date();
 		this.number = UUID.randomUUID();
