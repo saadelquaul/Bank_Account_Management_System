@@ -7,6 +7,13 @@ public class SavingsAccount extends Account {
 	public SavingsAccount(float balance) {
 		
 		super(balance);
+		
+	}
+	
+	public SavingsAccount(String code, float balance,float interestRate) {
+		super(code, balance);
+		this.interestRate = interestRate;
+		
 	}
 	
 	public float getInterestRate() {
@@ -19,7 +26,7 @@ public class SavingsAccount extends Account {
 		
 		if(this.getBalance() >= amount) {
 			setBalance(-amount);
-		}
+		}	
 		return false;
 	}
 

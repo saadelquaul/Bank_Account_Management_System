@@ -2,13 +2,14 @@ package main.ui;
 
 import java.util.InputMismatchException;
 
+import main.service.AccountService;
 import main.utils.InputsUtils;
 
 public abstract class DisplayScreen {
 
 	public static void mainMenu() {
 
-		System.out.print("\t\t Main Menu \n");
+		System.out.print("\n\n\n\t\t Main Menu \n");
 		System.out.println("to create an account press : 1");
 		System.out.println("to login press : 2");
 		System.out.println("to exit press : 0");
@@ -30,8 +31,9 @@ public abstract class DisplayScreen {
 	}
 
 	public static void createNewAccountScreen() {
-
-		System.out.print("Which kind of accounts you want to open?:\n");
+		
+		System.out.print("\n\n*********************\n");
+		System.out.print("\n\n\nWhich kind of accounts you want to open?:\n");
 		System.out.print("Savings Account press : 1\n");
 		System.out.print("Current Account press : 2\n");
 		
@@ -47,9 +49,14 @@ public abstract class DisplayScreen {
 
 	public static void createSavingsAccountScreen() {
 
+		
+		
 	}
 
 	public static void createCurrentAccountScreen() {
-
+		
+		
+		System.out.println("\n************************************\n-----Creating Current Account Menu-----");
+		AccountService.CreateCurrentAccount(InputsUtils.readFloat("Enter your Balance : "));
 	}
 }

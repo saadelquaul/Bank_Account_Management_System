@@ -1,6 +1,10 @@
 package main.model;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import main.service.OperationService;
+import main.utils.AccountUtils;
 
 public abstract class Account {
 
@@ -9,8 +13,18 @@ public abstract class Account {
 	private List<OperationService> Operations;
 	
 	
-	public Account(float balance) {
+	public Account(String code, float balance) {
+		this.code = code;
 		this.balance = balance;
+		this.Operations = new ArrayList<>();
+		
+	}
+	
+	public Account(float balance) {
+		
+		this.code =  AccountUtils.generateCode();
+		this.Operations = new ArrayList<>();
+		
 	}
 	
 	

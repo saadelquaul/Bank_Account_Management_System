@@ -24,5 +24,16 @@ public abstract class InputsUtils {
 			}
 		return choice;
 	}
+	
+	public static float readFloat(String message) {
+        while (true) {
+            try {
+                System.out.print(message);
+                return reader.nextFloat();
+            } catch (NumberFormatException e) {
+                System.out.println("❌ Invalid input. Please enter a decimal number.");
+            }
+        }
+    }
 
 }

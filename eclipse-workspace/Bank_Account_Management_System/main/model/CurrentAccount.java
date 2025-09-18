@@ -8,6 +8,10 @@ public class CurrentAccount extends Account {
 		super(balance);;
 	}
 
+	public CurrentAccount(String code, float balance,float overDraft) {
+		super(code, balance);
+		this.overDraft = overDraft;
+	}
 	
 	public float getOverDraft() {
 		return overDraft;
