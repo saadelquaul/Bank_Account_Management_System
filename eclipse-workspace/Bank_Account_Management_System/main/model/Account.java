@@ -4,32 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 import main.service.OperationService;
-import main.utils.AccountUtils;
 
 public abstract class Account {
 
-	private String code;
-	private float balance;
-	private List<OperationService> Operations;
+	protected String code;
+	protected float balance;
+	protected List<Operation> operations;
 	
 	
 	public Account(String code, float balance) {
 		this.code = code;
 		this.balance = balance;
-		this.Operations = new ArrayList<>();
-		
-	}
-	
-	public Account(float balance) {
-		
-		this.code =  AccountUtils.generateCode();
-		this.Operations = new ArrayList<>();
+		this.operations = new ArrayList<>();
 		
 	}
 	
 	
-	public List<OperationService> getOperations() {
-		return Operations;
+	public List<Operation> getOperations() {
+		return operations;
 	}
 
 
@@ -43,18 +35,18 @@ public abstract class Account {
 	}
 
 
-	public void setBalance(float balance) {
-		this.balance = balance;
+	public void setOperations(Operation operation) {
+		operations.add(operation);
 	}
 
-
-	public void setOperations(OperationService operation) {
-		Operations.add(operation);
+	public void Deposit(float amount) {
+		this.balance += amount;
+		this.operations.add(new Deposit(amount, "Cash deposit"));
 	}
-
-
-	public abstract boolean withdraw(float amount);
+	
+	public abstract void withdraw(float amount);
 	public abstract void displayDetails();
 	public abstract float calculateInterest();
+	
 
 }

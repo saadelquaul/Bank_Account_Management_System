@@ -18,4 +18,9 @@ public class Withdrawal extends Operation {
 	public void setDestination(String destination) {
 		this.destination = destination;
 	}
+	
+	@Override
+    public String showDetails() {
+        return "[Withdraw] " + this.getAmount() + " DH by " + destination + " - " + this.getDate();
+    }
 }

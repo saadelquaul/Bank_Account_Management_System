@@ -5,6 +5,7 @@ import java.util.Random;
 
 import main.model.Account;
 import main.model.CurrentAccount;
+import main.model.SavingsAccount;
 
 public abstract class AccountUtils {
 	
@@ -20,37 +21,4 @@ public abstract class AccountUtils {
         return amount > 0;
     }
 	
-	public static boolean isValidInterestRate(double taux) {
-        return taux > 0;
-    }
-	
-	public static List<Account> stringListToAccountList(List<String> AccountsStringList) {
-		
-		
-		for(int i = 0; i < AccountsStringList.size(); i++) {
-			
-		}
-		
-	}
-	
-	public static Account stringLineToAccountObject(String line) {
-		
-		String[] lineContent = seperateLine(line);
-		
-		if(lineContent[0] == "CurrentAccount") {
-			return new CurrentAccount();
-		}
-	}
-	
-	public static String[] seperateLine(String line) {
-		
-		return line.split("//"); 
-		
-	}
-	
-	public static String accountToString(Account Acc) {
-		
-		String accountString = Acc.getCode() + "//" + Acc.getBalance() ;
-		return accountString;
-	}
 }

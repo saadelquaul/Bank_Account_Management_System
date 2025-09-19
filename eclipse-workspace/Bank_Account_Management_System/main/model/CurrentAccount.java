@@ -1,14 +1,12 @@
 package main.model;
 
+
 public class CurrentAccount extends Account {
 	
 	private float overDraft = 500;
-	
-	public CurrentAccount(float balance) {
-		super(balance);;
-	}
 
-	public CurrentAccount(String code, float balance,float overDraft) {
+
+	public CurrentAccount(String code, float balance, float overDraft) {
 		super(code, balance);
 		this.overDraft = overDraft;
 	}
@@ -19,20 +17,21 @@ public class CurrentAccount extends Account {
 	
 	
 	@Override
-	public boolean withdraw(float amount) {
-		if ( this.getBalance() - amount >= -overDraft) {
-			
-			this.setBalance(-amount);
-			setOperations(new Withdrawal(amount,"Distributeur ATM"));
-			return true;
-		}
-		return false;
+	public void withdraw(float amount) {
+		
+		if (balance - amount >= -overDraft) {
+			balance -= amount;
+            operations.add(new Withdrawal(amount, "ATM"));
+        } else {
+            System.out.println("❌ Withdrawal refused: overdraft limit reached.");
+        }
+		
 	}
 
 	@Override
 	public void displayDetails() {
 		
-		
+		System.out.println("Current Account [" + code + "] - Account balance : " + balance + " - OverDraft : " + overDraft);
 
 	}
 

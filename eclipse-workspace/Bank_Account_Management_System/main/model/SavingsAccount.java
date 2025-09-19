@@ -4,13 +4,8 @@ public class SavingsAccount extends Account {
 
 	private float interestRate = 0.2f;
 	
-	public SavingsAccount(float balance) {
+	public SavingsAccount(String code, float balance, float interestRate) {
 		
-		super(balance);
-		
-	}
-	
-	public SavingsAccount(String code, float balance,float interestRate) {
 		super(code, balance);
 		this.interestRate = interestRate;
 		
@@ -22,24 +17,24 @@ public class SavingsAccount extends Account {
 	}
 	
 	@Override
-	public boolean withdraw(float amount) {
+	public void withdraw(float amount) {
 		
-		if(this.getBalance() >= amount) {
-			setBalance(-amount);
-		}	
-		return false;
+		if (balance >= amount) {
+            balance -= amount;
+            operations.add(new Withdrawal(amount, "Cash withdrawal"));
+        } else {
+            System.out.println("❌ Withdrawal refused: insufficient balance.");
+        }
 	}
 
 	@Override
 	public void displayDetails() {
-		// TODO Auto-generated method stub
-
+		System.out.println("Savings Account [" + code + "] - Account Balance : " + balance + " - Interest Rate : " +interestRate + "%");
 	}
 
 	@Override
 	public float calculateInterest() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.getBalance() * interestRate / 100;
 	}
 
 }

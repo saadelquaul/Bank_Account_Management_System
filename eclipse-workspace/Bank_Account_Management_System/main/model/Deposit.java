@@ -13,4 +13,9 @@ public class Deposit extends Operation {
 		public String getSource() {
 			return source;
 		}
+		
+		@Override
+	    public String showDetails() {
+	        return "[Deposit] " + this.getAmount() + " DH by " + source+ " - " + this.getDate();
+	    }
 }

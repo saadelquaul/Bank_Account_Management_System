@@ -1,34 +1,33 @@
 package main.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
-import main.service.OperationService;
-
-public abstract class Operation implements OperationService {
-	private UUID number;
-	private Date date;
-	private float montant;
+public abstract class Operation {
+	private String number;
+	private LocalDateTime date;
+	private float amount;
 	
-	public Operation(float montant) {
-		this.montant = montant;
-		this.date = new Date();
-		this.number = UUID.randomUUID();
+	public Operation(float amount) {
+		this.amount = amount;
+		this.date =  LocalDateTime.now();
+		this.number = UUID.randomUUID().toString();
 	}
 	
 	
 	public String getNumber() {
-		return number.toString();
+		return number;
 	}
 	
-	public Date getDate() {
+	public LocalDateTime getDate() {
 		return date;
 	}
 	
-	public float getMontant() {
-		return montant;
+	public float getAmount() {
+		return amount;
 	}
 	
+	public abstract String showDetails();
 	
 	
 }
