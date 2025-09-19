@@ -202,7 +202,7 @@ public abstract class DisplayScreen {
 	            }
 	            case 5 : {
 	            	
-	            	transferUI();
+	            	transferUI(acc);
 	            	break;
 	            }
 	            case 0 : {
