@@ -3,24 +3,6 @@
 A comprehensive Java-based banking application that provides essential account management functionality through a command-line interface.
 
 ![Java](https://img.shields.io/badge/Java-8-orange)
-![Build](https://img.shields.io/badge/Build-Passing-brightgreen)
-![License](https://img.shields.io/badge/License-MIT-blue)
-
----
-
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Architecture](#architecture)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [UML Design](#uml-design)
-- [Development](#development)
-- [Testing](#testing)
-- [Contributing](#contributing)
-- [License](#license)
 
 ---
 
@@ -33,7 +15,6 @@ The Bank Account Management System is a robust Java 8 console application design
 - **Layered Architecture**: Separation of concerns with UI, Service, and Model layers
 - **Multiple Account Types**: Support for Current and Savings accounts
 - **Transaction Management**: Complete audit trail of all operations
-- **Dependency Injection**: Custom DI container for loose coupling
 
 ---
 
@@ -73,14 +54,6 @@ The Bank Account Management System is a robust Java 8 console application design
 │  Model Layer    │  ← Account, Operation, etc.
 └─────────────────┘
 ```
-
-### Design Patterns Used
-- **Dependency Injection**: Custom DI container for service management
-- **Strategy Pattern**: Different account type behaviors
-- **Factory Pattern**: Account creation
-- **Repository Pattern**: Data access abstraction
-
----
 
 ## 🚀 Getting Started
 
@@ -150,12 +123,11 @@ The Bank Account Management System is a robust Java 8 console application design
    
    Enter initial deposit amount: $500.00
    ✅ Account created successfully!
-   Your Account Code: SAV-2025001
    ```
 
 3. **Account Operations**
    ```
-   ── ACCOUNT DASHBOARD (SAV-2025001) ──
+   ── ACCOUNT DASHBOARD ──
    Current Balance: $500.00
    
    1. 💰 Deposit Money
@@ -199,7 +171,7 @@ main/
 
 The system follows a well-structured object-oriented design:
 
-![Class Diagram](ClassDiagram1.png)
+![Class Diagram](Bank_Account_Management_System/main/ClassDiagram1.png)
 
 ### Key Classes:
 - **Account**: Abstract base class for all account types
@@ -209,8 +181,6 @@ The system follows a well-structured object-oriented design:
 - **DisplayScreen**: User interface controller
 
 ---
-
-## 🛠️ Development
 
 ### Build Commands
 
