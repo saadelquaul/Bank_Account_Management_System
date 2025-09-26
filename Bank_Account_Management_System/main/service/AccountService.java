@@ -11,7 +11,7 @@ import main.utils.AccountUtils;
 public class AccountService {
 	
 	private Map<String, Account> accounts = new HashMap<>();
-	
+	private float MaxBalance = 0;
 	
 	public Account createCurrentAccount(float initialDeposit, float overDraft) {
 		{
@@ -53,6 +53,16 @@ public class AccountService {
 	        }
 	    }
 	
-	
+	public float findMaxBalance() {
+		
+		accounts.values().forEach(a -> {
+			if(a.getBalance() > MaxBalance) { MaxBalance = a.getBalance();}
+			
+		});
+		
+		return MaxBalance;
+		
+		
+	}
 
 }

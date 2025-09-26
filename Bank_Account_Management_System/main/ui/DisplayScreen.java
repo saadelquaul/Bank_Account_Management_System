@@ -35,6 +35,8 @@ public abstract class DisplayScreen {
 			case 4:
 				searchAccountMenu();
 				break;
+			case 5: 
+				showMaxBalance();
 			case 0:
 				System.out.println("Exiting program... Exited Successfully!");
 				running = false;
@@ -43,11 +45,18 @@ public abstract class DisplayScreen {
 		}
 
 	}
+	
+	public static void showMaxBalance() {
+		System.out.println("Max Balance is : " + service.findMaxBalance());
+	}
 
 	public static void showMenu() {
 		System.out.println("\n=========== MAIN MENU ===========");
 		System.out.println(" 1. Create an Account");
 		System.out.println(" 2. Login");
+		System.out.println(" 3. Transfer Menu");
+		System.out.println(" 4. Search for Account");
+		System.out.println(" 5. show Max Balance");
 		System.out.println(" 0. Exit");
 		System.out.println("=================================");
 		System.out.print("Enter your choice: ");
